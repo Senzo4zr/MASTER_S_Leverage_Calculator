@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master S Leverage Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('BG2.png'); /* Replace with your image URL */
+            background-size: 100vw 110vh; /* Make sure the background image covers the whole page */
+            background-position: center; /* Center the image */
+            font-family: Arial, sans-serif;
+        }
+        
+        .contact-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact-button {
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-button img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-button:hover {
+            opacity: 0.8;
+        }
+
+        /* Specific colors for each button */
+        .whatsapp-button {
+            background-color: #25D366;
+        }
+
+        .telegram-button {
+            background-color: #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h2>Master S Leverage Calculator</h2>
+
+        <form id="calculator">
+            <div class="input-group">
+                <label for="capital">Capital (USDT):</label>
+                <input type="number" id="capital" placeholder="Enter your total capital" required oninput="updateDefaults()">
+            </div>
+
+            <div class="input-group">
+                <label for="margin">Margin:</label>
+                <input type="number" id="margin" placeholder="Enter margin in USD" disabled oninput="updateMarginSliderFromManual()">
+                <div class="slider-container">
+                    <input type="range" id="marginSlider" min="0" max="100" step="1" value="0" disabled oninput="updateMarginFromSlider()">
+                    <small>Margin: <span id="marginPercentageDisplay">0%</span></small>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="risk">Risk:</label>
+                <input type="number" id="risk" placeholder="Enter risk in USD" disabled oninput="updateRiskSliderFromManual()">
+                <div class="slider-container">
+                    <input type="range" id="riskSlider" min="0" max="100" step="0.5" value="50" disabled oninput="updateRiskFromSlider()">
+                    <small>Risk: <span id="riskPercentageDisplay">50%</span></small>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="stoploss">Stop Loss %:</label>
+                <input type="number" id="stoploss" placeholder="Enter stop loss percentage" required disabled>
+            </div>
+
+            <button type="button" onclick="calculate()" id="calculateButton" disabled>Calculate Leverage</button>
+            <div id="output">Leverage = ?</div>
+            <div id="error">Please fill out all fields correctly!</div>
+            <div id="safe-leverage"></div>
+        </form>
+    </div>
+
+    <!-- Contact Buttons -->
+    <div class="contact-buttons">
+        <a href="https://wa.me/1234567890" class="contact-button whatsapp-button" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+            Chat on WhatsApp
+        </a>
+    
+        <a href="https://t.me/yourtelegramusername" class="contact-button telegram-button" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon">
+            Join on Telegram
+        </a>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

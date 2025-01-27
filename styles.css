@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.calculator-container {
+    background-color: rgb(10, 10, 9);
+    background-image: url('BG3.png'); /* Replace with your background image URL */
+    background-size: cover;  /* Ensure the background image covers the entire container */
+    background-position: center; /* Center the background image */
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative; /* Needed for positioning the watermark inside this container */
+}
+
+/* Watermark styles for the calculator container */
+.calculator-container::after {
+    content: ''; /* No text content, just an image */
+    position: absolute;
+    bottom: 10px;  /* Adjust position from the bottom */
+    right: 10px;   /* Adjust position from the right */
+    width: 100px;  /* Width of the watermark logo */
+    height: auto;  /* Maintain aspect ratio */
+    background-image: url('BG3.png'); /* Replace with the path to your logo */
+    background-size: contain; /* Scale the logo appropriately */
+    background-repeat: no-repeat; /* Ensure the logo does not repeat */
+    opacity: 0.5; /* Make the watermark semi-transparent */
+    z-index: 9999; /* Ensure it's above other content inside the container */
+}
+
+
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333333;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #2a5ff0;
+}
+
+input[type="number"],
+input[type="range"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input[type="range"] {
+    margin-bottom: 0;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#margin-percentage,
+#risk-percentage {
+    font-weight: bold;
+}
+
+.info-text {
+    font-size: 0.875rem;
+    color: #777777;
+}
+
+button {
+    padding: 1rem;
+    background-color: #2a5ff0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.125rem;
+    margin-top: 1rem;
+}
+
+button:disabled {
+    background-color: #cccccc;
+}
+
+.result {
+    margin-top: 2rem;
+}
+
+#leverage {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.warning {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.safe-leverage {
+    color: #4CAF50;
+}
+.contact-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column; /* Change to vertical layout */
+    gap: 10px; /* Adjust spacing between buttons */
+}
+
